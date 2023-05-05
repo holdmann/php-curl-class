@@ -1,9 +1,9 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 require 'Helper.php';
 
-use \Curl\Curl;
-use \Curl\CaseInsensitiveArray;
+use \PhpCurlClass\Curl;
+use \PhpCurlClass\CaseInsensitiveArray;
 use \Helper\Test;
 
 class CurlTest extends PHPUnit_Framework_TestCase
@@ -280,7 +280,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
             'Connection: keep-alive' . "\r\n" .
             "\r\n";
 
-        $reflector = new ReflectionClass('\Curl\Curl');
+        $reflector = new ReflectionClass('\PhpCurlClass\Curl');
         $reflection_method = $reflector->getMethod('parseResponseHeaders');
         $reflection_method->setAccessible(true);
 
@@ -546,7 +546,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
             'file_path' => $uploaded_file_path,
         )), function($instance, $fh) use (&$callback_called) {
             PHPUnit_Framework_Assert::assertFalse($callback_called);
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertTrue(is_resource($fh));
             PHPUnit_Framework_Assert::assertEquals('stream', get_resource_type($fh));
             PHPUnit_Framework_Assert::assertGreaterThan(0, strlen(stream_get_contents($fh)));
@@ -657,7 +657,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         $curl = new Curl();
         $curl->setCookie('cookie', 'Om nom nom nom');
 
-        $reflectionClass = new ReflectionClass('\Curl\Curl');
+        $reflectionClass = new ReflectionClass('\PhpCurlClass\Curl');
         $reflectionProperty = $reflectionClass->getProperty('options');
         $reflectionProperty->setAccessible(true);
         $options = $reflectionProperty->getValue($curl);
@@ -669,7 +669,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         $curl = new Curl();
         $curl->setCookie('JSESSIONID', '0000wd-PcsB3bZ-KzYGAqm_rKlm:17925chrl');
 
-        $reflectionClass = new ReflectionClass('\Curl\Curl');
+        $reflectionClass = new ReflectionClass('\PhpCurlClass\Curl');
         $reflectionProperty = $reflectionClass->getProperty('options');
         $reflectionProperty->setAccessible(true);
         $options = $reflectionProperty->getValue($curl);
@@ -786,7 +786,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         $curl = new Curl();
         $curl->setHeader('Content-Type', $content_type);
 
-        $reflector = new ReflectionClass('\Curl\Curl');
+        $reflector = new ReflectionClass('\PhpCurlClass\Curl');
         $property = $reflector->getProperty('headers');
         $property->setAccessible(true);
         $headers = $property->getValue($curl);
@@ -1116,7 +1116,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
             'text/x-json',
         );
 
-        $class = new ReflectionClass('\Curl\Curl');
+        $class = new ReflectionClass('\PhpCurlClass\Curl');
         $property = $class->getProperty('jsonPattern');
         $property->setAccessible(true);
         $json_pattern = $property->getValue(new Curl);
@@ -2255,7 +2255,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
     {
         $response = "\r\n\r\n";
 
-        $reflector = new ReflectionClass('\Curl\Curl');
+        $reflector = new ReflectionClass('\PhpCurlClass\Curl');
         $reflection_method = $reflector->getMethod('parseResponseHeaders');
         $reflection_method->setAccessible(true);
 
@@ -2307,7 +2307,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         $curl->setHeader('X-DEBUG-TEST', 'get');
         $curl->beforeSend(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertFalse($before_send_called);
             PHPUnit_Framework_Assert::assertFalse($success_called);
             PHPUnit_Framework_Assert::assertFalse($error_called);
@@ -2316,7 +2316,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         });
         $curl->success(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertTrue($before_send_called);
             PHPUnit_Framework_Assert::assertFalse($success_called);
             PHPUnit_Framework_Assert::assertFalse($error_called);
@@ -2329,7 +2329,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         });
         $curl->complete(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertTrue($before_send_called);
             PHPUnit_Framework_Assert::assertTrue($success_called);
             PHPUnit_Framework_Assert::assertFalse($error_called);
@@ -2358,7 +2358,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         $curl->setOpt(CURLOPT_CONNECTTIMEOUT_MS, 2000);
         $curl->beforeSend(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertFalse($before_send_called);
             PHPUnit_Framework_Assert::assertFalse($success_called);
             PHPUnit_Framework_Assert::assertFalse($error_called);
@@ -2371,7 +2371,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         });
         $curl->error(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertTrue($before_send_called);
             PHPUnit_Framework_Assert::assertFalse($success_called);
             PHPUnit_Framework_Assert::assertFalse($error_called);
@@ -2380,7 +2380,7 @@ class CurlTest extends PHPUnit_Framework_TestCase
         });
         $curl->complete(function ($instance) use (
             &$before_send_called, &$success_called, &$error_called, &$complete_called) {
-            PHPUnit_Framework_Assert::assertInstanceOf('Curl\Curl', $instance);
+            PHPUnit_Framework_Assert::assertInstanceOf('PhpCurlClass\Curl', $instance);
             PHPUnit_Framework_Assert::assertTrue($before_send_called);
             PHPUnit_Framework_Assert::assertFalse($success_called);
             PHPUnit_Framework_Assert::assertTrue($error_called);

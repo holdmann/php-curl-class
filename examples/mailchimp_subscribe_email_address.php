@@ -1,7 +1,7 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 define('MAILCHIMP_API_KEY', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-XXX');
 $parts = explode('-', MAILCHIMP_API_KEY);

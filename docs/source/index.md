@@ -28,9 +28,9 @@ Include PHP Curl Class.
 
 ```php
 <?php
-require 'Curl/Curl.php';
+require 'PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 ```
 
 # Usage
@@ -39,9 +39,9 @@ use \Curl\Curl;
 
 ```php
 <?php
-require 'Curl/Curl.php';
+require 'PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 $curl = new Curl();
 $curl->get('https://www.example.com/', array(

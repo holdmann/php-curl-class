@@ -1,9 +1,9 @@
 <?php
-require '../src/Curl/Curl.php';
-require '../src/Curl/MultiCurl.php';
+require '../src/PhpCurlClass/Curl.php';
+require '../src/PhpCurlClass/MultiCurl.php';
 
-use \Curl\Curl;
-use \Curl\MultiCurl;
+use \PhpCurlClass\Curl;
+use \PhpCurlClass\MultiCurl;
 
 $multi_curl = new MultiCurl();
 

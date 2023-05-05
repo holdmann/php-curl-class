@@ -1,7 +1,7 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 define('API_KEY', '');
 define('API_SECRET', '');

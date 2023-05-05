@@ -1,7 +1,7 @@
 <?php
 namespace Helper;
 
-use Curl\Curl;
+use PhpCurlClass\Curl;
 
 class Test
 {

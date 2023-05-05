@@ -8,16 +8,16 @@ after=$(tail -n +$(
 
 echo "${before}" > "README.md"
 
-curl_max_line_number=$(grep --context="0" --line-number --max-count="1" '^}$' "src/Curl/Curl.php" | \
+curl_max_line_number=$(grep --context="0" --line-number --max-count="1" '^}$' "src/PhpCurlClass/Curl.php" | \
     perl -pe 's/^(\d+):.*/\1/')
 echo '```php' >> "README.md"
-head -n "${curl_max_line_number}" "src/Curl/Curl.php" | \
+head -n "${curl_max_line_number}" "src/PhpCurlClass/Curl.php" | \
     egrep "^    .* function .*" | \
     egrep "^    public" | \
     sort | \
     perl -pe 's/^    public (.* )?function /Curl::/' | \
     tee -a "README.md"
-egrep "^    .* function .*" "src/Curl/MultiCurl.php" | \
+egrep "^    .* function .*" "src/PhpCurlClass/MultiCurl.php" | \
     egrep "^    public" | \
     sort | \
     perl -pe 's/^    public (.* )?function /MultiCurl::/' | \

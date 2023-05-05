@@ -1,7 +1,7 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 define('CLIENT_ID', 'XXXXXXXXXXXX.apps.googleusercontent.com');
 define('CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXXX');

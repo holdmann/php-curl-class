@@ -1,7 +1,7 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 define('INSTAGRAM_CLIENT_ID', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
 define('INSTAGRAM_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');

@@ -22,7 +22,7 @@ PHP Curl Class works with PHP 5.3, 5.4, 5.5, 5.6, and HHVM.
 ```php
 require 'Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 $curl = new Curl();
 $curl->get('http://www.example.com/');

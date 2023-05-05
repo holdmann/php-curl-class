@@ -1,15 +1,15 @@
 #!/usr/bin/php
 <?php
-require dirname(__FILE__) . '/../src/Curl/Curl.php';
+require dirname(__FILE__) . '/../src/PhpCurlClass/Curl.php';
 
-$current_version = Curl\Curl::VERSION;
+$current_version = PhpCurlClass\Curl::VERSION;
 list($major, $_, $_) = explode('.', $current_version);
 $new_version = implode('.', array((string)((int)$major += 1), '0', '0'));
 
 foreach(
     array(
         array(
-            dirname(__FILE__) . '/../src/Curl/Curl.php',
+            dirname(__FILE__) . '/../src/PhpCurlClass/Curl.php',
             '/const VERSION = \'(?:\d+.\d+.\d+)\';/',
             'const VERSION = \'' . $new_version . '\';',
         ),

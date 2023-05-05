@@ -1,7 +1,7 @@
 <?php
-require '../src/Curl/Curl.php';
+require '../src/PhpCurlClass/Curl.php';
 
-use \Curl\Curl;
+use \PhpCurlClass\Curl;
 
 $curl = new Curl();
 $curl->progress(function($client, $download_size, $downloaded, $upload_size, $uploaded) {
